@@ -1,0 +1,18 @@
+<script>
+    //Arreglo de objetos
+    let arr = [
+        {nombre:"chocosoda",precio:1.5},
+        {nombre:"gaseosa 500ml",precio:2.7},
+        {nombre:"Snack Papitas",precio:1.7},
+    ];
+    const nuevoArr = arr.map(elemento => {
+        const {nombre,precio} = elemento;
+        // Nuevo objeto "item"
+        let item = {
+            producto: nombre,
+            inflacion: precio*2,
+        }
+        return item;
+    });
+    console.log(nuevoArr);
+</script>

@@ -1,0 +1,35 @@
+<script>
+    class Libro {
+        constructor(tematica,paginas){
+            this.tematica = tematica;
+            this.paginas = paginas;
+        }
+        getTematica(){
+            //return 'El libro trata de "'+this.tematica+'"';
+            //return "El libro trata de \""+this.tematica+"\"";
+            return `El libro trata de "${this.tematica}"`;
+        }
+        getPaginas(){
+            return `El libro tiene ${this.paginas} paginas`;
+        }
+    }
+    
+    class LibroTecnico extends Libro {
+        constructor(tematica, paginas){
+           super(tematica, paginas);
+        }
+    }
+    
+    class LibroNormativo extends Libro {
+        constructor(tematica, paginas){
+           super(tematica, paginas);
+        }
+    }
+    
+    const libro = new LibroTecnico("Cultura",90);
+    console.log(libro.getTematica());
+    
+    const libro2 = new LibroNormativo("Leyes 2022",90);
+    console.log(libro2.getTematica());
+    </script>
+    

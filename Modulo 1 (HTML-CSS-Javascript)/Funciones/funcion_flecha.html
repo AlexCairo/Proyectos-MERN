@@ -1,0 +1,26 @@
+<script>
+    // Función Regular
+    /*function sumar100(a){
+        return a + 100;
+    }*/
+    
+    const sumar100 = a => a + 100;
+    
+    console.log(sumar100(90));
+    
+    const persona = {
+        nombre:"",
+        saludar: function (){
+            return "Soy "+this.nombre;
+        },
+        decirNombre: function() {
+            setTimeout(function(){
+                console.log("Me llamo Megan")
+            },3000);
+        }
+    }
+    
+    persona.nombre = "José";
+    console.log(persona.saludar());
+    console.log(persona.decirNombre());
+    </script>

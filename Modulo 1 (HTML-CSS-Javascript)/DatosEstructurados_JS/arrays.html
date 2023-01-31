@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Declarar un arreglo
+        let frutas = ['uva', 'manzana', 'fresa'];
+        console.log(frutas);
+        //Acceder a un elemento de un arreglo
+        console.log('frutas[1]', frutas[1]);
+        //Modifica el valor de un elemento de un arreglo
+        frutas[2] = 'mandarina';
+        console.log(frutas);
+        //Añadir elementos de un arreglo
+        frutas.push("higo");
+        console.log(frutas);
+
+        function comprar() {
+            const fruta = prompt("Qué fruta vas a comprar?")
+            frutas.push(fruta);
+            console.log(frutas);
+        }
+        //Quitar elementos
+        // donde 3 es la posicion y 1 indica cuantos elementos a partir de esta posicion
+        frutas.slice(3,1);
+        console.log(frutas);
+    </script>
+</body>
+
+</html>

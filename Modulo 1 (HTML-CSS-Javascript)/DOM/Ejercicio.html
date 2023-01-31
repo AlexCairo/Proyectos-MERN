@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+    <script>
+    function solicitarPago(){
+        let precioModulo = 0;
+        let modulosArr = [];
+        // Obtengo el valor del curso seleccionado
+        const curso = document.querySelector('#curso').value;
+        if(curso=='Java'){
+            precioModulo = 1600;
+        }else if(curso=='.Net'){
+            precioModulo = 1700;
+        }else if(curso=='PHP'){
+            precioModulo = 1200;
+        }else{
+            alert('Debes seleccionar un curso')
+        }
+        if(precioModulo>0){ 
+            // Obtengo todos los checkboxes cuya class tiene el valor "modulo"
+            const checkModulos = document.querySelectorAll('.modulo');
+            console.log(checkModulos);
+            // Recorro todos los checkboxes
+            for (const checkbox of checkModulos) {
+                console.log(checkbox);
+                // Si el checkbox esta selecccionado lo agrego al arreglo de modulos
+                if(checkbox.checked){ 
+                    modulosArr.push(checkbox.value);
+                }
+            }
+            console.log(modulosArr);
+            // Obtengo el span donde se muestra el nombre del cursos
+            const nombreCurso = document.querySelector('#nombreCurso');
+            // Asigno el contenido con el valor del curso seleccionado
+            nombreCurso.innerHTML = curso;
+            // Obtengo la lista donde se muestra los módulos seleccionados
+            const lista = document.querySelector('#lista');
+            // Recorro todos el arreglo donde se guardan los modulos 
+            let items = '';
+            let subtotal = 0;
+            for (const modulo of modulosArr) {
+                items += '<li>'+modulo+'</li>';
+                subtotal+= precioModulo;
+            }
+            console.log(items);
+            console.log('subtotal: ', subtotal);
+            // Asignamos los item al contenido de la lista
+            lista.innerHTML = items;
+            // Obtengo el span donde se muestra el subtotal
+            const subtotalSpan = document.querySelector('#subtotal');
+            // Asigno el contenido con el valor del subtotal
+            subtotalSpan.innerHTML = subtotal;
+            // Obtengo el span donde se muestra el total
+            const totalSpan = document.querySelector('#total');
+            // Asigno el contenido con el valor del subtotal
+            totalSpan.innerHTML = subtotal;
+        }
+    }
+    function pagarConTC(obj){
+        // Obtengo el valor del span donde se muestra el subtotal
+        const subtotalSpan = document.querySelector('#subtotal').innerHTML;
+        console.log('subtotalSpan', subtotalSpan);
+        // Obtengo los objetos span donde se muestra el descuento y el subtotal
+        const descuentoSpan = document.querySelector('#descuento');
+        const totalSpan = document.querySelector('#total');
+        if(obj.checked){ // Cuando estoy marcando el checkbox
+            const descuento = subtotalSpan*0.05;
+            const total = subtotalSpan*0.95;
+            console.log(descuento,total);
+            descuentoSpan.innerHTML = descuento;
+            totalSpan.innerHTML = total;
+        }else{ // Cuando  estoy desmarcando el checkbox
+            descuentoSpan.innerHTML = '0.00';
+            totalSpan.innerHTML = subtotalSpan;
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="cursos">
+        <h2>Cursos</h2>
+        <p>Selecciona un curso</p>
+        <select id="curso">
+            <option value="">Selecciona una opción</option>
+            <option value="Java">Java</option>
+            <option value=".Net">.Net</option>
+            <option value="PHP">PHP</option>
+        </select>
+    </div>
+    <div id="modulos">
+        <h2>Módulos</h2>
+        <p>Selecciona un módulo</p>
+        <input type="checkbox" value="Básico" class="modulo" /> Básico <br/>
+        <input type="checkbox" value="Intermedio" class="modulo" /> Intermedio <br/>
+        <input type="checkbox" value="Avanzado" class="modulo" /> Avanzado <br/>
+        <br/>
+        <button onclick="solicitarPago()">Solicitar Pago</button>
+    </div>
+    <div id="modulos">
+        <h2>Solicitud del Pedido</h2>
+        <p>Curso: <span id="nombreCurso"></span></p>
+        <p>Módulos</p>
+        <ul id="lista"></ul>
+        <p>SubTotal: S/ <span id="subtotal">0.00</span></p>
+        <p>Pago con T.C. <input type="checkbox" onclick="pagarConTC(this)" /> </p>
+        <p>Descuento: S/ <span id="descuento">0.00</span></p>
+        <p>Total a pagar: S/ <span id="total">0.00</span></p>
+    </div>
+</body>
+</html>

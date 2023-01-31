@@ -1,0 +1,46 @@
+<script>
+    class Persona {
+        constructor(nombre,edad,hobbie){
+            this.nombre = nombre;
+            this.edad = edad;
+            this.hobbie = hobbie;
+        }
+        Presentarse(){
+            console.log(`Soy ${this.nombre}, tengo ${this.edad} y me gusta el ${this.hobbie}`);
+        }
+        //Set
+        set setNombre (newNombre){
+            this.nombre = newNombre;
+        }
+        //Get
+        get getTrabajo(){
+            return this.trabajo;
+        }
+
+    }
+
+    class Trabajador extends Persona {
+        constructor(nombre,edad,hobbie,trabajo){
+            super(nombre,edad,hobbie);
+            this.trabajo = trabajo;
+        }
+        Presentarse(){
+            console.log(`Trabajo en ${this.trabajo}`);
+        }
+        Trabajar(){
+            console.log(`Trabajando ...`);
+        }
+    }
+
+    const pipol = new Trabajador("Jony",23,"Futbol","ingenieria");
+    const niño = new Persona("Alex",19,"Tenis");
+    
+    niño.Presentarse();
+    pipol.Presentarse();
+    pipol.Trabajar();
+    niño.setNombre = "Pipo";
+    console.log("Nuevo nombre --> " +niño.nombre);
+    niño.Presentarse();
+    console.log("Obteniendo trabajo -->"+pipol.getTrabajo);
+
+</script>

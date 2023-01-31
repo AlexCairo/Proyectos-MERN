@@ -1,0 +1,76 @@
+{
+  "nextId": 10,
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Juan Medina",
+      "email": "jmedina@mail.com",
+      "password": "123456",
+      "token": null,
+      "estado": "A"
+    },
+    {
+      "id": "2",
+      "nombre": "Silvia Linares",
+      "email": "slinares@mail.com",
+      "password": "123456",
+      "token": null,
+      "estado": "P"
+    },
+    {
+      "id": 3,
+      "nombres": "Alexander Cairo",
+      "email": "alexcairof@gmail.com",
+      "token": null,
+      "estado": "P"
+    },
+    {
+      "id": 4,
+      "nombres": "Alexander Cairo",
+      "email": "alexcairof@gmail.com",
+      "password": "123456",
+      "token": null,
+      "estado": "P"
+    },
+    {
+      "id": 5,
+      "nombres": "Javier Loco",
+      "email": "jijijija@mail.com",
+      "password": "123456",
+      "token": null,
+      "estado": "P"
+    },
+    {
+      "id": 6,
+      "nombres": "Javsddd",
+      "email": "jijsdja@mail.com",
+      "password": "123456",
+      "token": null,
+      "estado": "P"
+    },
+    {
+      "id": 7,
+      "nombres": "Javsddd",
+      "email": "jijsdja@mail.com",
+      "clave": "123456",
+      "token": "37gMrPh3rsz0ts27",
+      "estado": "P"
+    },
+    {
+      "id": 8,
+      "nombres": "Jlolodd",
+      "email": "jijsdja@mail.com",
+      "clave": "123456",
+      "token": "AkNn6pwHUXH9c0BG",
+      "estado": "P"
+    },
+    {
+      "id": 9,
+      "nombres": "Jlolodd",
+      "email": "jijsdja@mail.com",
+      "clave": "123456",
+      "token": "m4KAtspsBeyFXB5J",
+      "estado": "P"
+    }
+  ]
+}

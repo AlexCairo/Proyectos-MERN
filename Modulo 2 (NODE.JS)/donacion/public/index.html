@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Donación</title>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<h1>Donación</h1>
+<h2>Total S/ <span id="total">0.00<span></h2>
+<ul id="lista"></ul>
+<p>
+	<input type="text" id="inputNombre" placeholder="Nombre" /><br/>
+	<input type="text" id="inputDni" placeholder="DNI" /><br/>
+	<input type="number" id="inputMonto" placeholder="Monto" /><br/>
+	<button onclick="enviar()">Enviar Donación</button>
+</p>
+<script>
+const socket = io();
+function enviar(){
+	console.log('Enviando donación...');
+	const cajaNombre = document.getElementById('inputNombre');
+	const cajaDni = document.getElementById('inputDni');
+	const cajaMonto = document.getElementById('inputMonto');
+	const datos = {
+    	nombre: cajaNombre.value,
+    	dni: cajaDni.value,
+    	monto: cajaMonto.value
+	};
+	socket.emit('enviar-donacion', datos);
+	cajaNombre.value = '';
+	cajaDni.value = '';
+	cajaMonto.value = '';
+}
+socket.on('historico', (datos)=>{
+	console.log(datos);
+	const lista = document.getElementById('lista');
+	for(donante of datos){
+    		lista.innerHTML += `<li>${donante}</li>`;
+	}
+});
+socket.on('respuesta', (datos)=>{
+	console.log(datos);
+	const lista = document.getElementById('lista');
+	lista.innerHTML += `<li>${datos.persona}</li>`;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<script>
+    let estudiante = {
+        hobbies: ['teatro', 'cultura']
+    }
+    let persona = {
+        nombre: "Jhonathan",
+        telefono: "98636537",
+        direccion: "Lima-Perú",
+        hobbies: ['música', 'futbol', 'comida']
+    }
+    /*const nombre = persona.nombre;
+    const telefono = persona.telefono;
+    const direccion = persona.direccion;
+    const hobbies = persona.hobbies;*/
+    let { hobbies } = estudiante;
+    let { hobbies:pasatiempo, direccion, telefono } = persona;
+    console.log(hobbies);
+    console.log(pasatiempo);
+    console.log(direccion);
+    console.log(telefono);
+    
+    const operaciones = () => {
+        return objeto = {
+            sumar(a,b){
+                return a + b;
+            },
+            restar(a,b){
+                return a - b;
+            },
+            multiplicar(a,b){
+                return a * b;
+            },
+            dividir(a,b){
+                return a / b;
+            }
+        };
+    }
+    
+    let { sumar, dividir } = operaciones();
+    console.log("sumar: ", sumar(4,5));
+    </script>

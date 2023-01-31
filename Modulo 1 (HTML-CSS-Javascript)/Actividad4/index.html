@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad3</title>
+</head>
+
+<body>
+    <script>
+        // Datos iniciales
+        let alumnos = ['Juan Soto', 'Sofía Pérez', 'Miguel Nuñez', 'Pablo Silva'];
+        let registros = [];
+        let promedios = [];
+        let estados = {
+            "Aprobados": [],
+            "Desaprobados": []
+        };
+
+        //const datos = {alumno: alumnos[a], nota1: inputNotaUno.value, nota2: inputNotaDos.value}
+
+        //registros.push(datos);
+
+
+        // Solicitar las notas por alumno
+        for(const alumno of alumnos){
+            let inputNota1 = prompt(`¿Ingresa la primera nota para ${alumno}?`);
+            let inputNota2 = prompt(`¿Ingresa la segunda nota para ${alumno}?`);
+            const datos = {
+                Alumno: alumno,
+                nota1 : parseInt(inputNota1),
+                nota2 : parseInt(inputNota2),
+            }
+            registros.push(datos);
+        }
+        console.log(registros);
+        
+        // Obtener los promedios de la lista de registros   
+        promedios = registros.map(elem =>{
+            const {Alumno,nota1,nota2}  = elem;
+            let prom = (nota1+nota2)/2;
+            if (prom < 13){
+                item = {
+                alumno : Alumno,
+                promedio : prom,
+                estado : 'Desaprobado'
+                }
+            }else{
+                item = {
+                alumno : Alumno,
+                promedio : prom,
+                estado : 'Aprobado',
+                }
+            }
+            return item;
+        })
+        console.log(promedios);
+
+        //Obtener la lista de cantidad de alumnos aprobados y desaprobados
+        estados.Aprobados = promedios.filter(elem => elem.promedio >= 13);
+        estados.Desaprobados = promedios.filter(elem => elem.promedio < 13);
+        console.log(estados);
+    </script>
+</body>
+
+</html>

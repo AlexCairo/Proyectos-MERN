@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <script>
+    function inputOnKeyUp(obj){
+        console.log('inputOnKeyUp: ', obj.value);
+    }
+    function inputOnKeyDown(obj){
+        console.log('inputOnKeyDown: ', obj.value);
+    }
+    window.onload = function(){
+        const inputText = document.querySelector('#inputText');
+        inputText.onkeydown = function(event){
+            const obj = event.target; // Obtenemos el element actual html (caja de texto)
+            console.log('inputOnKeyDown: ', obj.value);
+        };
+        inputText.onchange = function(event){
+            const obj = event.target; // Obtenemos el element actual html (caja de texto)
+            console.log('inputOnChange: ', obj.value);
+        };
+    }
+    function selectOnChange(obj){
+        console.log('selectOnChange: ', obj.value);
+        if(obj.value==''){
+            alert('Debes seleccionar una opción');
+        }
+    }
+    </script>
+</head>
+<body>
+<button onclick="alert('Botón')">Botón</button>
+<br/><br/>
+<input type="text" id="inputText" onkeyup="inputOnKeyUp(this)" />
+<br/><br/>
+<select onchange="selectOnChange(this)">
+    <option value="">Selecciona una opción</option>
+    <option value="verde">Verde</option>
+    <option value="azul">Azul</option>
+    <option value="rojo">Rojo</option>
+</select>
+</body>
+</html>

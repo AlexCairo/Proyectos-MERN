@@ -1,0 +1,30 @@
+<script>
+const getNames = new Promise(function(resolve, reject){
+    return setTimeout(() => {
+        const names = ['Jose','Karla','Felipe'];
+        resolve(names);
+    }, 3000);
+});
+const getAccounts = new Promise(function(resolve, reject){
+    return setTimeout(() => {
+        const names = ['Cuenta1','Cuenta2','Cuenta3'];
+        resolve(names);
+    }, 2000);
+});
+const getPartness = new Promise(function(resolve, reject){
+    return setTimeout(() => {
+        const names = ['Partner1','Partner2','Partner3'];
+        resolve(names);
+    }, 4000);
+});
+
+async function listData(){
+    const valNames =  await getNames;
+    console.log(valNames);
+    const valPartness =  await getPartness;
+    console.log(valPartness);
+    const valAccounts =  await getAccounts;
+    console.log(valAccounts);
+}
+listData();
+</script>

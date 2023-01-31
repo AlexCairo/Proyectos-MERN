@@ -1,0 +1,25 @@
+<script>
+    function crearFrase(frase, callback){
+        let miFrase = "Siempre digo, "+frase;
+        callback(miFrase);
+    }
+    
+    function logFrase(frase){
+        console.log(frase);
+    }
+    
+    function logFrase2(frase){
+        console.log("logFrase2: ", frase);
+    }
+    
+    console.log("Inicio");
+    crearFrase("come toda tu comida", logFrase);
+    crearFrase("come toda tu comida", logFrase2);
+    let puntos = 2;
+    crearFrase("come toda tu comida", (result) => {
+       puntos++;
+        console.log("No "+result);
+    });
+    console.log(puntos);    
+    console.log("fin");
+    </script>

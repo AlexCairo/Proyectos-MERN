@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+    <script>
+    async function listaBebidas(){
+        console.log("Iniciando listado");
+        const url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail';
+        const response = await fetch(url);
+        const list = await response.json();
+        const drinks = list.drinks;
+        console.log(drinks);
+        let filasHtml = '';
+        drinks.forEach(elem => {
+            filasHtml+= `<tr>
+                            <td>${elem.strDrink}</td>
+                            <td><img src="${elem.strDrinkThumb}" height="100"></td>
+                        <tr/>`;
+        });
+        document.getElementById("contenido").innerHTML = filasHtml;
+        console.log("Fin del listado");
+    }
+    window.onload = ()=>{
+        listaBebidas();
+    }
+    </script>
+</head>
+<body>
+<table border="1" width="100%">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody id="contenido">
+        <tr>
+            <td colspan="2" align="center">Cargando...</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

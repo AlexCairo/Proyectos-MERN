@@ -1,0 +1,14 @@
+<script>
+    function saludar(nombre){
+        console.log("Hola "+nombre);
+    }
+
+    function ingresarUsuario(callback){
+        let nombre = prompt("Ingresa tu nombre! :");
+        callback(nombre);
+    }
+
+    ingresarUsuario(saludar, (result) =>{
+        alert(result);
+    });
+</script>

@@ -1,0 +1,16 @@
+{
+  "name": "ejemploservidor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "servidorejemplo.js",
+  "scripts": {
+    "start": "nodemon servidorejemplo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

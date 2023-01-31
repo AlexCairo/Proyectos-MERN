@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Estados</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+</head>
+<body>
+<div class="container">
+	<div class="mt-3">
+    	<div class="input-group mb-3">
+        	<input type="text" id="texto"  class="form-control" placeholder="Ingresar" />
+        	<button class="btn btn-primary" type="button" onclick="guardar()">Guardar</button>
+    	</div>
+	</div>
+	<table class="table">
+    	<thead>
+        	<tr>
+            	<th>Tarea</th>
+            	<th>Acciones</th>
+        	</tr>
+    	</thead>
+    	<tbody id="datos">
+    	</tbody>
+	</table>
+</div>
+<script>
+let nextId = 4;
+let lista = [
+	{id:1, tarea:'Comprar tinta para la impresora'},
+	{id:2, tarea:'Pagar el internet'},
+	{id:3, tarea:'Pagar la luz'},
+]
+function renderizar(){
+	const tbody = document.getElementById('datos');
+	let filas = '';
+	lista.forEach(item => {
+    	filas += `<tr>
+        	<td>${item.tarea}</td>
+        	<td>
+            	<button class="btn btn-secondary">Editar</button>
+            	<button onclick="eliminar(${item.id})" class="btn btn-danger">Eliminar</button>
+        	</td>
+    	</tr>`;
+	});
+	tbody.innerHTML = filas;
+}
+function guardar(){
+	const texto = document.getElementById('texto').value;
+	const datos = {
+    	id: nextId,
+    	tarea: texto
+	}
+	nextId++;
+    texto.value = "";
+	lista.push(datos);
+	renderizar();
+}
+function eliminar(id){
+    const lista = lista.filter(item=>item.id != id)
+    renderizar();
+}
+renderizar();
+</script>
+</body>
+</html>

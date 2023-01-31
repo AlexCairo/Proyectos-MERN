@@ -1,0 +1,12 @@
+<script>
+    const getNames = new Promise(function(resolve,reject){
+        return setTimeout(() => {
+            const names = ['Juan','Karla','Felipe'];
+            resolve(names);
+        }, 2000);
+    });
+    getNames.then(
+        result=>console.log(result),
+        error=>console.log(error),
+    )
+</script>

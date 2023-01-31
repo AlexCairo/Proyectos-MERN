@@ -1,0 +1,26 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14;
+	margin: 0;
+}
+
+#chat {
+	border: 1px solid #2138b8;
+}
+
+#mensajes {
+	padding: 10px;
+	height: 400px;
+	overflow: auto;
+}
+
+input, button {
+	width: 100%;
+	padding: 8px;
+}
+
+button {
+	background-color:  #2138b8;
+	color: #FFF;
+	border: none;
+}

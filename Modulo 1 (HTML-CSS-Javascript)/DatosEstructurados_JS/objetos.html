@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const celular = {
+            marca: "Xiaomi",
+            modelo: "Redmi note 9",
+            precio: 1600,
+            llamar: function (num) {
+                return "Llamando a " + num;
+            },
+            mensajear: function (num, mensaje) {
+                return "Enviando mensaje a "+ num;
+            }
+        }
+        //Accediendo al valor de la marca
+        console.log(celular.marca);
+        //Accediendo al valor del modelo
+        console.log(celular['modelo']);
+        console.log(celular.mensajear("98765431", "Hola, estás?"));
+        //Modificando el valor del precio
+        celular.precio = 1800;
+        //Mostrando el objecto celular en consola
+        console.log(celular);
+        // Preguntar por la caracteristica del celular
+        const propiedad = prompt("Ingresa la caracteristica que desea saber:");
+        console.log("propiedad: ", propiedad);
+        console.log(propiedad+" del celular",celular[propiedad]);
+    </script>
+</body>
+
+</script>
+</body>
+
+</html>
